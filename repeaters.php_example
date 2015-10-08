@@ -1,0 +1,12 @@
+<?
+if (isset($_GET['repeater']))
+    $repeater = strtolower($_GET['repeater']);
+else
+    $repeater = "pi1spa";
+
+$repeaters['pi1spa']['id'] = "204342";
+$repeaters['pi1spa']['ip'] = "172.18.0.1";
+$repeaters['pi1spa']['location'] = "Spakenburg";
+$repeaters['pi1spa']['gps'] = array('52.26','5.376667');
+$repeaters['pi1spa']['rssi'] = 200;
+
