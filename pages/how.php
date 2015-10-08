@@ -1,5 +1,5 @@
 <h4>Sourcecode</h4>
-Webinterface: Comming soon<br>
+<a href="https://github.com/zarya/DRTM-WebGUI">Webinterface<a><br>
 <a href="https://github.com/zarya/DRTM-Backend">Backend</a><br>
 <a href="https://github.com/zarya/DRTM-Pusher">Pusher</a><br>
 
@@ -18,7 +18,7 @@ Webinterface: Comming soon<br>
 * The inside ring is for Reflected power <i class="fa fa-sort-down"></i><br>
 <hr>
 <h4>Map</h4>
-* Blue: TS1<br>
-* Green: TS2<br>
+* Green: TS1<br>
+* Blue: TS2<br>
 * Size of the circle RSSI<br>
 
