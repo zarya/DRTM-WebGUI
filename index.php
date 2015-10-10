@@ -1,5 +1,6 @@
 <?php
 include("repeaters.php");
+include("config.php");
 
 if  (!isset($_GET['page'])) $_GET['page'] = "home";
 
@@ -8,8 +9,8 @@ if  (!isset($_GET['page'])) $_GET['page'] = "home";
     <title>DMR Realtime</title>
     <link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
     <link href="plugins/select2/select2.css" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css" type="text/css" />
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

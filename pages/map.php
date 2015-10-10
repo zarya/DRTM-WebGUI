@@ -1,4 +1,4 @@
- <style type="text/css">
+<style type="text/css">
       #map-canvas { height: 100%; margin: 0; padding: 0;}
     </style>
 
@@ -78,7 +78,7 @@ function init_map() {
 
   var mapOptions = {
     zoom: 8,
-    center: new google.maps.LatLng(52.155314, 5.387725),
+    center: new google.maps.LatLng(<?=$config['map_location'][0]?>, <?=$config['map_location'][1]?>),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
@@ -147,7 +147,7 @@ function init_map() {
 
 google.maps.event.addDomListener(window, 'load', init_map);
 
-var socket = io.connect('http://home.gigafreak.net:5000');
+var socket = io.connect('<?=$config['pusher']?>');
 socket.on('connect', function () {
   socket.on('mqtt', function (msg) {
     var elma=msg.topic.split('/');

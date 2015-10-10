@@ -65,7 +65,7 @@ foreach($repeaters as $key => $value) {
         }, 10000);
 */
     });
-      var socket = io.connect('http://home.gigafreak.net:5000');
+      var socket = io.connect('<?=$config['pusher']?>');
         socket.on('connect', function () {
           socket.on('mqtt', function (msg) {
             var elma=msg.topic.split('/');
