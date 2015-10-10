@@ -7,4 +7,4 @@ $db['db']   = "";
 $config['pusher'] = "http://home.gigafreak.net:5000";
 $config['map_location'][] = "52.155314";
 $config['map_location'][] = "5.387725";
-
+$config['map_zoom'] = 8;

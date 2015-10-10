@@ -77,7 +77,7 @@ function init_map() {
     {name: "Styled Map"});
 
   var mapOptions = {
-    zoom: 8,
+    zoom: <?=$config['map_zoom']?>,
     center: new google.maps.LatLng(<?=$config['map_location'][0]?>, <?=$config['map_location'][1]?>),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
