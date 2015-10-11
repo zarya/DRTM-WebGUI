@@ -7,7 +7,7 @@ $_ip = str_replace(".","",$value['ip']);
 ?>
                     <div class="col-xs-12 col-sm-6 col-md-4" style="width: 250px; height: 360px;">
                         <h4 class="page-header text-right"><?=strtoupper($repeater)?></h4>
-                        <small>Repeater van <?=$repeaters[$repeater]['location']?></small>
+                        <small>Repeater in <?=$repeaters[$repeater]['location']?></small>
                         <br> 
                         <div class="row">
                             <div class="col-md-9">

@@ -72,7 +72,7 @@ if  (!isset($_GET['page'])) $_GET['page'] = "home";
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-legal"></i> Aan deze pagina kunnen geen rechten worden ontleend</a>
+                    <a href="#"><i class="fa fa-legal"></i> Nothing on this website creates any rights or obligations</a>
                 </li>
                 <li>
                     <a href="mailto:pd0zry@gigafreak.net"><i class="fa fa-envelope"></i> Contact</a>
