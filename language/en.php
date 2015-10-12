@@ -22,4 +22,10 @@ $language['repeater'] = "Repeater";
 $language['in'] = "in";
 $language['loading'] = "Loading";
 
-
+$language['ago'] = "ago";
+$language['years'] = "years";
+$language['months'] = "months";
+$language['days'] = "days";
+$language['hours'] = "hours";
+$language['minutes'] = "minutes";
+$language['seconds'] = "seconds";

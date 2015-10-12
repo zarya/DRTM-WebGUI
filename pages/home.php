@@ -109,12 +109,12 @@ foreach($repeaters as $key => $value) {
             if (elma[2] == "lastTs1") {
                 console.log(elma[1]+" "+msg.payload);
                 var since = timeSince(msg.payload);
-                $('#lastTs1'+elma[1].replace(/\./g,'')).html(since+" ago");
+                $('#lastTs1'+elma[1].replace(/\./g,'')).html(since+" <?=$language['ago']?>");
             }
             if (elma[2] == "lastTs2") {
                 console.log(elma[1]+" "+msg.payload);
                 var since = timeSince(msg.payload);
-                $('#lastTs2'+elma[1].replace(/\./g,'')).html(since+" ago");
+                $('#lastTs2'+elma[1].replace(/\./g,'')).html(since+" <?=$language['ago']?>");
             }
          });
          socket.emit('subscribe',{topic:'hytera/#'});
