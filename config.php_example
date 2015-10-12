@@ -9,3 +9,4 @@ $config['map_location'][] = "52.155314";
 $config['map_location'][] = "5.387725";
 $config['map_zoom'] = 8;
 $config['language'] = "en";
+$config['hosted'] = "Hosted by: PI4AMF";
