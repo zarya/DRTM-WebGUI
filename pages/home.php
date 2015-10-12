@@ -1,13 +1,13 @@
 <div class="" style="width: 100%;">
                 <div class="row" style="position: absolute;">
-<?
+<?php
 foreach($repeaters as $key => $value) {
 $repeater = $key;
 $_ip = str_replace(".","",$value['ip']);
 ?>
                     <div class="col-xs-12 col-sm-6 col-md-4" style="width: 250px; height: 360px;">
                         <h4 class="page-header text-right"><?=strtoupper($repeater)?></h4>
-                        <small>Repeater in <?=$repeaters[$repeater]['location']?></small>
+                        <small><?=$language['repeater']?> <?=$language['in']?> <?=$repeaters[$repeater]['location']?></small>
                         <br> 
                         <div class="row">
                             <div class="col-md-9">
@@ -31,12 +31,12 @@ $_ip = str_replace(".","",$value['ip']);
                                 <div class="row"><i class="fa fa-fire" id="rptPaTempratureAlarm<?=$_ip?>"></i><span id="rptPaTemprature<?=$_ip?>"></span> C</div>
                                 <div class="row"><i class="fa fa-bolt" id="rptVoltageAlarm<?=$_ip?>"></i><span id="rptVoltage<?=$_ip?>"></span> V</div>
                                 <div class="row"><i class="fa fa-mobile"></i>1 <span id="rptSlot1Rssi<?=$_ip?>"></span> dB</div>
-                                <div class="row"><span class="sparkline" id="rssi1<?=$_ip?>">Loading..</span></div>
+                                <div class="row"><span class="sparkline" id="rssi1<?=$_ip?>"><?=$language['loading']?>..</span></div>
                                 <div class="row"><i class="fa fa-user"></i> <span id="usrTs1<?=$_ip?>"></span></div>
                                 <div class="row"><i class="fa fa-clock-o"></i> <span id="lastTs1<?=$_ip?>"></span></div>
                                 <div class="row"><i class="fa fa-phone"></i> <span id="tlkTs1<?=$_ip?>"></span></div>
                                 <div class="row"><i class="fa fa-mobile"></i>2 <span id="rptSlot2Rssi<?=$_ip?>"></span> dB</div>
-                                <div class="row"><span class="sparkline" id="rssi2<?=$_ip?>">Loading..</span></div>
+                                <div class="row"><span class="sparkline" id="rssi2<?=$_ip?>"><?=$language['loading']?>..</span></div>
                                 <div class="row"><i class="fa fa-user"></i> <span id="usrTs2<?=$_ip?>"></span></div>
                                 <div class="row"><i class="fa fa-clock-o"></i> <span id="lastTs2<?=$_ip?>"></span></div>
                                 <div class="row"><i class="fa fa-phone"></i> <span id="tlkTs2<?=$_ip?>"></span></div>
@@ -44,18 +44,18 @@ $_ip = str_replace(".","",$value['ip']);
                             </div>
                         </div>
                     </div>
-<? } ?>
+<?php } ?>
 <script type="text/javascript">
     var rssi1log={};
     var rssi2log={};
     var repeater="<?=$repeaters[$repeater]['ip']?>";
     $(document).ready(function () {
         $('.sparkline').sparkline([],{width: '120px',});
-<?
+<?php
 foreach($repeaters as $key => $value) {
 ?>
         //createRepeaterGauge("<?=$key?>",false);
-<?}?>
+<?php } ?>
         createKnob();
 /*
         setInterval(function() {
