@@ -1,6 +1,8 @@
 <?php
 
 $language[''] = "";
+$language['DRTM'] = "DMR Real time Monitor";
+$language['possible'] = "Made possible by";
 $language['home'] = "Home";
 $language['news'] = "News";
 $language['map'] = "Map";

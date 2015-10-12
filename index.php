@@ -20,7 +20,7 @@ if  (!isset($_GET['page'])) $_GET['page'] = "home";
     <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-<h1>DMR Real time Monitor</h1>
+<h1><?=$language['DRTM']?></h1>
 <div id="main" class="container-fluid">
     <div class="row">
         <div id="sidebar-left" class="col-xs-2 col-sm-2">
@@ -29,7 +29,12 @@ if  (!isset($_GET['page'])) $_GET['page'] = "home";
             <ul class="nav main-menu">
                 <li>
                     <a href="#">
-                        Made possible by: PD0ZRY in cooperation with PI4AMF
+                        <?=$language['possible']?>: PD0ZRY
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <?=$config['hosted']?>
                     </a>
                 </li>
                 <li><a href="#">&nbsp</a></li>
