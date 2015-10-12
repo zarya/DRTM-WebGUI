@@ -15,6 +15,7 @@ $language['voltage'] = "Voltage";
 $language['user'] = "User";
 $language['last_time_qso'] = "Time since last QSO";
 $language['talkgroup'] = "Talkgroup";
+$language['ts'] = "Timeslot";
 $language['legal'] = "Nothing on this website creates any rights or obligations";
 $language['contact'] = "Contact";
 $language['repeater'] = "Repeater";

@@ -64,7 +64,7 @@ if  (!isset($_GET['page'])) $_GET['page'] = "home";
                             <a href="#"><i class="fa fa-bolt"></i> <?=$language['voltage']?></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-mobile"></i> RSSI</a>
+                            <a href="#"><i class="fa fa-mobile"></i> <?=$language['ts']?> RSSI</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user"></i> <?=$language['user']?></a>
