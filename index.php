@@ -110,5 +110,35 @@ if  (!isset($_GET['page'])) $_GET['page'] = "home";
   })();
 </script>
 <noscript><p><img src="//stats.gigafreak.net/piwik.php?idsite=11" style="border:0;" alt="" /></p></noscript>
+<script type="text/javascript">
+function timeSince(date) {
+    date = date * 1000
+    var seconds = Math.floor((new Date() - date)/1000);
+
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " <?=$language['years']?>";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " <?=$language['months']?>";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " <?=$language['days']?>";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " <?=$language['hours']?>";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " <?=$language['minutes']?>";
+    }
+    return Math.floor(seconds) + " <?=$language['seconds']?>";
+}
+</script>
+
 <!-- End Piwik Code -->
 
