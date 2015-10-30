@@ -48,22 +48,14 @@ $_ip = str_replace(".","",$value['ip']);
 <script type="text/javascript">
     var rssi1log={};
     var rssi2log={};
+    var repeaterTS1={};
+    var repeaterTS2={};
+
     var repeater="<?=$repeaters[$repeater]['ip']?>";
+    UpdateCounterTS();
     $(document).ready(function () {
         $('.sparkline').sparkline([],{width: '120px',});
-<?php
-foreach($repeaters as $key => $value) {
-?>
-        //createRepeaterGauge("<?=$key?>",false);
-<?php } ?>
         createKnob();
-/*
-        setInterval(function() {
-            jQuery.get('dmrusers.txt', function(data) {
-                console.log(data);
-            });
-        }, 10000);
-*/
     });
       var socket = io.connect('<?=$config['pusher']?>');
         socket.on('connect', function () {
@@ -73,8 +65,9 @@ foreach($repeaters as $key => $value) {
 
             if (parseFloat(msg.payload) > 0)
                 msg.payload = round_float(msg.payload,2);
-            if (strEndsWith(elma[2],"Alarm") == false)
+            if (strEndsWith(elma[2],"Alarm") == false && elma[2] != "lastTs1" && elma[2] != "lastTs2") {
                 $('#'.concat(elm)).html(msg.payload);
+            }
             if (elma[2] == "rptTxFwdPower") {
                 $('#knobPower'+elma[1].replace(/\./g,'')).val(msg.payload).trigger("change");
             }
@@ -83,19 +76,23 @@ foreach($repeaters as $key => $value) {
             }
             if (elma[2] == "rptSlot1Rssi") {
                 var host = elma[1].replace(/\./g,'')
-                if (rssi1log[host] == undefined)
-                    rssi1log[host] = [msg.payload];
-                else
-                    rssi1log[host] = statsarray(rssi1log[host],msg.payload);
-                $('#rssi1'.concat(host)).sparkline(rssi1log[host]);
+                if (msg.payload != "DOWN"){ 
+                    if (rssi1log[host] == undefined)
+                        rssi1log[host] = [msg.payload];
+                    else
+                        rssi1log[host] = statsarray(rssi1log[host],msg.payload);
+                    $('#rssi1'.concat(host)).sparkline(rssi1log[host]);
+                }
             }
             if (elma[2] == "rptSlot2Rssi") {
                 var host = elma[1].replace(/\./g,'')
-                if (rssi2log[host] == undefined)
-                    rssi2log[host] = [msg.payload];
-                else
-                    rssi2log[host] = statsarray(rssi2log[host],msg.payload);
-                $('#rssi2'.concat(host)).sparkline(rssi2log[host]);
+                if (msg.payload != "DOWN"){ 
+                    if (rssi2log[host] == undefined)
+                        rssi2log[host] = [msg.payload];
+                    else
+                        rssi2log[host] = statsarray(rssi2log[host],msg.payload);
+                    $('#rssi2'.concat(host)).sparkline(rssi2log[host]);
+                }
             }
             if (strEndsWith(elma[2],"Alarm") == true) {
                 if (msg.payload == "Alarm") {
@@ -107,18 +104,32 @@ foreach($repeaters as $key => $value) {
                 }
             }
             if (elma[2] == "lastTs1") {
-                console.log(elma[1]+" "+msg.payload);
-                var since = timeSince(msg.payload);
-                $('#lastTs1'+elma[1].replace(/\./g,'')).html(since+" <?=$language['ago']?>");
+                repeaterTS1[elma[1]] = msg.payload;
             }
             if (elma[2] == "lastTs2") {
-                console.log(elma[1]+" "+msg.payload);
-                var since = timeSince(msg.payload);
-                $('#lastTs2'+elma[1].replace(/\./g,'')).html(since+" <?=$language['ago']?>");
+                repeaterTS2[elma[1]] = msg.payload;
             }
          });
          socket.emit('subscribe',{topic:'hytera/#'});
         });
+
+
+function UpdateCounterTS() {
+  for(var index in repeaterTS1) {
+      var times = repeaterTS1[index]; 
+      var since = timeSince(times);
+      $('#lastTs1'+index.replace(/\./g,'')).html(since+" <?=$language['ago']?>");
+  }
+
+  for (var index in repeaterTS2) {
+      var times = repeaterTS2[index]; 
+      var since = timeSince(times);
+      $('#lastTs2'+index.replace(/\./g,'')).html(since+" <?=$language['ago']?>");
+  }
+  console.log("Restarting TS timer");
+  window.setTimeout(UpdateCounterTS, 2000);
+}
+
 </script>
 </div>
                 <!--End Dashboard Tab 4-->
